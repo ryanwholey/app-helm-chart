@@ -10,7 +10,7 @@ metadata:
 spec:
   selector:
     app: {{ include "app.name" . }}
-  type: {{ .Values.server.service.type }}
+  type: {{ .Values.app.service.type }}
   ports:
     - protocol: TCP
       port: 80

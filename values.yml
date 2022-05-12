@@ -1,8 +1,0 @@
-image:
-  repository: ""
-  tag: "latest"
-
-server:
-  port: null
-  service:
-    type: NodePort

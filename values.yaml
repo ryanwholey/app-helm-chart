@@ -1,0 +1,8 @@
+image:
+  repository: ""
+  tag: latest
+app:
+  deployment:
+    port: 8080
+  service:
+    type: NodePort
