@@ -6,3 +6,8 @@ app:
     port: 8080
   service:
     type: NodePort
+  ingress:
+    enabled: false
+    annotations: {}
+    labels: {}
+    host: ""

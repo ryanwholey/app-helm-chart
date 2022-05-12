@@ -30,3 +30,29 @@ Create chart name and version as used by the chart label.
 {{- define "app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+{{/*
+Formats extra labels using the passed labels value. Indentation should be handled by the caller.
+*/}}
+{{- define "app.labels" -}}
+{{- with . }}
+  {{- if typeOf . | eq "string" }}
+    {{- . }}
+  {{- else }}
+    {{- toYaml . }}
+  {{- end}}
+{{- end }}
+{{- end }}
+
+{{/*
+Formats extra annotations using the passed labels value. Indentation should be handled by the caller.
+*/}}
+{{- define "app.annotations" -}}
+{{- with . }}
+  {{- if typeOf . | eq "string" }}
+    {{- . }}
+  {{- else }}
+    {{- toYaml . }}
+  {{- end}}
+{{- end }}
+{{- end }}
