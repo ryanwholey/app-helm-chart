@@ -4,12 +4,15 @@ metadata:
   name: {{ include "app.name" . }}
   namespace: {{ .Release.Namespace }}
   labels:
+    helm.sh/chart: {{ include "app.chart" . }}
     app.kubernetes.io/name: {{ include "app.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   selector:
-    app: {{ include "app.name" . }}
+    app.kubernetes.io/name: {{ include "app.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    component: app
   type: {{ .Values.app.service.type }}
   ports:
     - protocol: TCP
