@@ -5,12 +5,12 @@ metadata:
   name: {{ include "app.name" . }}
   namespace: {{ .Release.Namespace }}
   annotations:
-    {{ include "app.annotations" .Values.app.ingress.annotations }}
+    {{- include "app.annotations" .Values.app.ingress.annotations | nindent 4 }}
   labels:
     app.kubernetes.io/name: {{ include "app.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-    {{ include "app.labels" .Values.app.ingress.labels }}
+    {{- include "app.labels" .Values.app.ingress.labels | nindent 4 }}
 spec:
   rules:
   - host: {{ .Values.app.ingress.host }}
