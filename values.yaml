@@ -4,6 +4,7 @@ image:
 app:
   deployment:
     port: 8080
+    env: {}
   service:
     type: NodePort
   ingress:

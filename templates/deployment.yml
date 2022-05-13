@@ -28,3 +28,9 @@ spec:
           ports:
           - containerPort: {{ .Values.app.deployment.port }}
             name: http
+          env:
+            - name: PORT
+              value: "{{ .Values.app.deployment.port }}"
+          {{- with .Values.app.deployment.env }}
+          {{- toYaml . | nindent 12 }}
+          {{- end }}            
