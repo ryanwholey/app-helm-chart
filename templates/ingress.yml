@@ -2,13 +2,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "app.fullname" . }}
+  name: {{ .Values.name }}
   namespace: {{ .Release.Namespace }}
   annotations:
     {{- include "app.annotations" .Values.app.ingress.annotations | nindent 4 }}
   labels:
     helm.sh/chart: {{ include "app.chart" . }}
-    app.kubernetes.io/name: {{ include "app.name" . }}
+    app.kubernetes.io/name: {{ .Values.name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     {{- include "app.labels" .Values.app.ingress.labels | nindent 4 }}
