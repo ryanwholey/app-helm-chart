@@ -1,2 +1,2 @@
-# waypoint-app-helm-chart
-Test Helm chart for deploying generic apps via Waypoint
+# app-helm-chart
+A Helm chart for deploying generic applications
