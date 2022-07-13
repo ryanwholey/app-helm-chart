@@ -1,5 +1,4 @@
 image:
-  repository: ""
   tag: latest
 app:
   deployment:
